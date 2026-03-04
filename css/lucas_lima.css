@@ -1,0 +1,134 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+:root{
+--bg: #0b1220;
+--card: #0f172a;
+--paper: #ffffff;
+--text: #0f172a;
+--muted: #475569;
+--primary: #2563eb;  
+--gold: #f59e0b;     
+--line: rgba(15, 23, 42, 0.12);
+}
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+background: radial-gradient(1000px 500px at 20% 0%, rgba(37,99,235,.20), transparent 60%),
+            radial-gradient(900px 500px at 80% 10%, rgba(245,158,11,.18), transparent 60%),
+            #0b1220;
+color: #e5e7eb;
+line-height: 1.6;
+padding: 24px;
+}
+
+main{
+max-width: 900px;
+margin: 0 auto;
+}
+
+header{
+max-width: 900px;
+margin: 0 auto 18px auto;
+padding: 22px 18px;
+border-radius: 14px;
+background: linear-gradient(135deg, rgba(37,99,235,.25), rgba(245,158,11,.18));
+border: 1px solid rgba(255,255,255,.12);
+backdrop-filter: blur(6px);
+}
+
+header h1{
+font-size: 1.8rem;
+letter-spacing: .3px;
+}
+
+header h1::before{
+content: "🏴‍☠️ ";
+}
+
+header h1::after{
+content: "  ☀️";
+}
+
+section{
+background: rgba(255,255,255,0.92);
+color: var(--text);
+border-radius: 14px;
+padding: 18px;
+margin: 14px 0;
+border: 1px solid var(--line);
+box-shadow: 0 10px 25px rgba(0,0,0,.25);
+position: relative;
+overflow: hidden;
+}
+
+section::before{
+content: "";
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 6px;
+background: linear-gradient(to bottom, var(--primary), var(--gold));
+}
+
+h2{
+font-size: 1.2rem;
+margin-bottom: 10px;
+padding-left: 10px;
+border-left: 4px solid var(--primary);
+}
+
+p{
+margin: 8px 0;
+color: #111827;
+}
+
+#lugar p:last-child{
+color: #0f172a;
+}
+
+strong{
+color: #0f172a;
+}
+
+#curiosidades ul{
+margin-top: 10px;
+padding-left: 22px;
+}
+
+#curiosidades li{
+margin: 10px 0;
+padding: 10px 12px;
+border-radius: 12px;
+background: rgba(37,99,235,0.08);
+border: 1px solid rgba(37,99,235,0.18);
+list-style: "⭐ ";
+}
+
+footer{
+max-width: 900px;
+margin: 18px auto 0 auto;
+text-align: center;
+padding: 14px 10px;
+color: #cbd5e1;
+font-size: 0.95rem;
+opacity: 0.95;
+}
+
+@media (max-width: 520px){
+body{
+    padding: 14px;
+}
+
+header h1{
+    font-size: 1.4rem;
+}
+
+section{
+    padding: 14px;
+}
+}

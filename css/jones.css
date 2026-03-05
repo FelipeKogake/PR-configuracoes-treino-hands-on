@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'Playpen';
+    src: url('../assets/jones/font/PlaypenSansHebrew-VariableFont_wght.woff2') format('woff2');
+    font-display: swap;
+}
+
+/* Fontes */
+:root {
+    --playpen: 'Playpen', cursive;
+}
+
+/* Cores */
+:root {
+    --branco: #FFFFFF;
+    --branco-suave: #FDFBFB;
+    --cinza-claro: #EBEDEE;
+    --cinza: #333333;
+    --vermelho-suica: #D52B1E;
+    --preto: #1A1A1A;
+    --cinza-texto: #E0E0E0;
+    --cinza-paragrafo: #555555;
+    --cinza-borda: #444444;
+    --cinza-fundo: #F8F9FA;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+    font-family: 'Playpen', cursive;
+}
+
+body {
+    background: linear-gradient(135deg, var(--branco-suave) 0%, var(--cinza-claro) 100%);
+    color: var(--cinza);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100vw;
+    height: 12vh;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0.5vh 1vw rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.voltar {
+    padding: 1.5vh 3vw;
+    background-color: var(--vermelho-suica);
+    color: var(--branco);
+    border: none;
+    border-radius: 2vw;
+    font-weight: 700;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.voltar:hover {
+    transform: translateY(-0.3vh);
+    filter: saturate(4) contrast(1.5);
+}
+
+.bandeiraSuica {
+    height: 7vh;
+    width: auto;
+    border-radius: 0.5vw;
+    box-shadow: 0 0.5vh 1vw rgba(0, 0, 0, 0.1);
+}
+
+main {
+    width: 80vw;
+    margin: 6vh auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6vh;
+}
+
+.inicio, .biografia, .sonhos {
+    background: var(--branco);
+    padding: 5vh 4vw;
+    border-radius: 1.5vw;
+    box-shadow: 0 1vh 3vw rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 0.8vw solid var(--vermelho-suica);
+}
+
+.inicio:hover, .biografia:hover, .sonhos:hover {
+    transform: scale(1.02);
+    box-shadow: 0 1.5vh 4vw rgba(0, 0, 0, 0.1);
+    filter: saturate(4) contrast(1.5);
+}
+
+.biografia {
+    background: var(--branco);
+    color: var(--branco);
+    border-left: 0.8vw solid var(--vermelho-suica);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+}
+
+.biografia p {
+    color: var(--cinza-paragrafo);
+}
+
+h1, h2 {
+    color: var(--preto);
+    margin-bottom: 3vh;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    letter-spacing: -0.05vw;
+}
+
+p {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--cinza-paragrafo);
+}
+
+ul {
+    margin-top: 4vh;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+li {
+    background: var(--cinza-fundo);
+    padding: 2.5vh 2.5vw;
+    border-radius: 1vw;
+    font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+    border-left: 0.4vw solid var(--vermelho-suica);
+    color: var(--cinza-borda);
+    line-height: 1.5;
+}
+
+footer {
+    width: 100vw;
+    padding: 5vh 0;
+    text-align: center;
+    background: var(--preto);
+    color: var(--branco);
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    margin-top: 8vh;
+}

@@ -1,0 +1,113 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins", Arial, sans-serif;
+}
+
+body{
+    background:#ffffff;
+    color:#333;
+    line-height:1.6;
+    min-height:100vh;
+}
+
+header{
+    background:hwb(243 30% 10%);
+    color:white;
+    text-align:center;
+    padding:3vh 4vw;
+}
+
+header h1{
+    font-size:2vw;
+}
+
+main{
+    max-width:70vw;
+    margin:6vh auto;
+    padding:0 3vw;
+}
+
+section{
+    background:#fafafa;
+    padding:3vh 2vw;
+    margin-bottom:3vh;
+    border-radius:0.5rem;
+    position:relative;
+}
+
+section::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:0.6vw;
+    border-radius:0.5rem 0 0 0.5rem;
+}
+
+#aluno::before{
+    background:hwb(271 70% 8%);
+}
+
+#lugar::before{
+    background:hwb(350 65% 4%);
+}
+
+#curiosidades::before{
+    background:hwb(43 50% 2%);
+}
+
+h2{
+    margin-bottom:1.5vh;
+    color:#444;
+    font-size:1.5vw;
+}
+
+p{
+    font-size:1vw;
+}
+
+ul{
+    padding-left:2vw;
+}
+
+li{
+    margin-bottom:1vh;
+    font-size:1vw;
+}
+
+footer{
+    text-align:center;
+    padding:3vh 2vw;
+    margin-top:6vh;
+    background:#ff7b7b23;
+    color:#666;
+    font-size:0.9vw;
+}
+
+/* Responsividade */
+@media (max-width:600px){
+
+    header h1{
+        font-size:6vw;
+    }
+
+    main{
+        max-width:90vw;
+    }
+
+    h2{
+        font-size:4.5vw;
+    }
+
+    p, li{
+        font-size:3.5vw;
+    }
+
+    footer{
+        font-size:3vw;
+    }
+
+}

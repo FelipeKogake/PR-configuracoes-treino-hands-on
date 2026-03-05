@@ -1,10 +1,26 @@
+/* Scroll */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--white);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--vermelho-suica);
+}
+
+/* Fontes */
 @font-face {
     font-family: 'Playpen';
     src: url('../assets/jones/font/PlaypenSansHebrew-VariableFont_wght.woff2') format('woff2');
     font-display: swap;
 }
 
-/* Fontes */
 :root {
     --playpen: 'Playpen', cursive;
 }

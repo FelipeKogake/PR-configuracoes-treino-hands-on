@@ -13,10 +13,10 @@ body{
 }
 
 header{
-    background:#ff6b6b;
+    background:hwb(243 30% 10%);
     color:white;
     text-align:center;
-    padding:4vh 5vw;
+    padding:3vh 4vw;
 }
 
 header h1{
@@ -48,15 +48,15 @@ section::before{
 }
 
 #aluno::before{
-    background:#4dabf7;
+    background:hwb(271 70% 8%);
 }
 
 #lugar::before{
-    background:#51cf66;
+    background:hwb(350 65% 4%);
 }
 
 #curiosidades::before{
-    background:#fcc419;
+    background:hwb(43 50% 2%);
 }
 
 h2{

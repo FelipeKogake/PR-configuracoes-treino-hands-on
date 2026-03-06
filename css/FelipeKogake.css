@@ -68,6 +68,7 @@ header {
     text-align: center;
     position: relative;
     border-bottom: 3px solid var(--japan-red);
+    display: flex;
 }
 
 header h1 {
@@ -76,7 +77,6 @@ header h1 {
     text-transform: uppercase;
     letter-spacing: 5px;
     text-shadow: 3px 3px 0px var(--dark-red);
-    margin-bottom: 10px;
     color: #fff;
     
     /* Animação de entrada */
@@ -234,4 +234,79 @@ footer p {
     header h1 { font-size: 2.2rem; }
     ul { grid-template-columns: 1fr; } /* Uma coluna no celular */
     body::before, body::after { font-size: 1.5rem; }
+}
+
+/* --- BOTÃO VOLTAR ESTILO SAMURAI --- */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    
+    /* Cores e Tipografia */
+    background: #0f0f0f;
+    color: var(--paper-white) !important;
+    font-family: 'Cinzel', serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    
+    /* Formato e Borda */
+    border: 1px solid var(--japan-red);
+    border-left: 8px solid var(--japan-red); /* "Cabo" da espada */
+    border-radius: 2px 15px 2px 15px; /* Corte assimétrico */
+    
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    box-shadow: 5px 5px 0px rgba(138, 0, 21, 0.3);
+
+    margin-right: 90px;
+}
+
+/* Seta Estilizada */
+.btn-back::before {
+    content: "«";
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: var(--japan-red);
+    transition: 0.3s;
+}
+
+/* Efeito de Brilho da Lâmina (Katana Flash) */
+.btn-back::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent
+    );
+    transform: skewX(-30deg);
+    transition: 0.6s;
+}
+
+/* Hover: Ativando o modo Combate */
+.btn-back:hover {
+    color: var(--gold-accent) !important;
+    background: #1a1a1a;
+    transform: translateX(-10px); /* Move para trás, indicando retorno */
+    border-color: var(--gold-accent);
+    box-shadow: 0 0 15px rgba(230, 0, 35, 0.5);
+}
+
+.btn-back:hover::after {
+    left: 150%;
+}
+
+.btn-back:hover::before {
+    color: var(--gold-accent);
+    transform: translateX(-5px);
 }

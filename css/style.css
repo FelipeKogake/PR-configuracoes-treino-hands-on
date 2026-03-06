@@ -50,28 +50,379 @@ header h1 {
     letter-spacing: -1px;
 }
 
+/* --- Estilização do Menu Principal --- */
 #menu {
     list-style: none;
-    display: flex;
-    gap: 1.5rem;
+    display: grid;
+    /* Cria uma grade responsiva: cards com no mínimo 180px */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+}
+
+#menu li {
+    perspective: 1000px; /* Prepara para o efeito 3D no hover */
 }
 
 #menu li a {
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Tamanho e Aparência */
+    min-height: 120px;
+    padding: 1.5rem;
+    background: white;
     color: var(--text-main);
     font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    
+    /* Borda e Sombra Corporativa */
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    
+    /* Transições Suaves */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Efeito vibrante no Menu */
-#menu li a:hover {
-    background: var(--primary-gradient);
+/* --- ESTILO PORTAL TORII: KOGAKE (NOME CENTRALIZADO NA BASE) --- */
+
+#menu li:nth-child(1) a:hover {
+    /* Mantendo as cores e texturas */
+    background: 
+        linear-gradient(rgba(230, 0, 35, 0.2), rgba(15, 15, 15, 0.98)), 
+        url('https://www.transparenttextures.com/patterns/black-scales.png'),
+        #0a0a0a;
+    
+    color: rgb(120, 120, 7);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+
+    /* --- AJUSTE DE POSICIONAMENTO --- */
+    display: flex;
+    flex-direction: column;   /* Organiza o conteúdo em coluna */
+    justify-content: flex-end; /* Empurra tudo para a base */
+    align-items: center;      /* Centraliza horizontalmente */
+    text-align: center;
+    padding-bottom: 20px;     /* Espaço entre o nome e a borda inferior */
+    
+    white-space: nowrap;      /* Força o nome em uma linha só */
+    font-size: 1.1rem;
+
+    /* FORMATO DE PORTAL TORII */
+    border-radius: 100px 100px 4px 4px / 20px 20px 0px 0px; 
+    border-top: 12px solid var(--japan-red);
+    border-left: 8px solid var(--japan-red);
+    border-right: 8px solid var(--japan-red);
+    border-bottom: 2px solid var(--dark-red);
+
+    /* Efeitos de Interação */
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(230, 0, 35, 0.4);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Viga horizontal (Nuki) ajustada para ficar acima do nome */
+#menu li:nth-child(1) a:hover::after {
+    content: '';
+    position: absolute;
+    top: 35%; 
+    left: -10%;
+    width: 120%;
+    height: 4px;
+    background: var(--japan-red);
+    box-shadow: 0 0 10px var(--japan-red);
+    z-index: 1;
+    border-radius: 2px;
+}
+
+/* Ícone central do Portal que aparece no meio do vão */
+#menu li:nth-child(1) a::before {
+    content: '⛩️';
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    opacity: 0;
+    transition: 0.5s;
+    color: rgba(230, 0, 35, 0.15);
+}
+
+#menu li:nth-child(1) a:hover::before {
+    opacity: 1;
+}
+
+/* --- ESTILO UPGRADE: JONNES PRADO (2º Card) --- */
+
+#menu li:nth-child(2) a:hover {
+    --swiss-red: #D52B1E;
+    --swiss-white: #FFFFFF;
+    
+    background-color: var(--swiss-white);
+    color: var(--swiss-red) !important;
+    font-family: 'Playpen', cursive;
+    
+    /* Geometria Suíça: Bordas precisas e simétricas */
+    border: 2px solid var(--swiss-red);
+    border-radius: 0px; /* Design suíço clássico prefere ângulos retos */
+    
+    /* Transformação sutil e imponente */
+    transform: scale(1.05);
+    box-shadow: 15px 15px 0px var(--swiss-red); /* Sombra sólida (Pop Art/Swiss Style) */
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+}
+
+/* Marca d'água da Cruz Suíça no fundo do card */
+#menu li:nth-child(2) a:hover::before {
+    content: "✚";
+    position: absolute;
+    font-size: 5rem;
+    color: rgba(213, 43, 30, 0.05); /* Bem sutil no fundo */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+/* Detalhe da Cruz que "sai" do canto */
+#menu li:nth-child(2) a:hover::after {
+    content: "✚";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--swiss-red);
     color: white;
-    box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
-    transform: translateY(-2px);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-family: sans-serif; /* Cruz clássica */
+    border-radius: 0 0 0 8px;
+    width: auto;
+    height: auto;
+    transform: none;
+    left: auto; /* Reset do estilo global */
+}
+
+/* Pequena linha de "Precisão Suíça" na base */
+#menu li:nth-child(2) a:hover::after {
+    /* (Reaproveitando o elemento para criar o selo no canto) */
+}
+
+/* Adicionando uma borda interna de precisão */
+#menu li:nth-child(2) a:hover {
+    outline: 1px solid var(--swiss-red);
+    outline-offset: -10px;
+}
+
+/* --- ESTILO PERSONALIZADO: LUCAS LIMA (3º Card) --- */
+
+#menu li:nth-child(3) a:hover {
+    --paper-light: #f6e7c6;
+    --paper-dark: #ecd6a4;
+    --ink-brown: #2b1d12;
+    --pirate-red: #b91c1c;
+
+    background: linear-gradient(180deg, var(--paper-light), var(--paper-dark));
+    color: var(--ink-brown) !important;
+    
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 2px solid var(--ink-brown);
+    border-radius: 4px;
+    
+    /* Ajuste para o texto não bater nos Berries */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 30px; 
+
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 15px 15px 0px rgba(43, 29, 18, 0.2);
+    
+    outline: 2px dashed rgba(43, 29, 18, 0.3);
+    outline-offset: -10px;
+}
+
+/* Adicionando o valor da recompensa na parte inferior */
+#menu li:nth-child(3) a:hover::after {
+    content: "฿ 3.000.000.000-"; /* Valor da recompensa */
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    color: var(--ink-brown);
+    letter-spacing: 1px;
+    font-family: 'Courier New', Courier, monospace; /* Fonte estilo máquina de escrever */
+    background: transparent;
+    width: 100%;
+    text-align: center;
+}
+
+/* Mantendo o ícone da bandeira pirata em outro lugar para não bater no valor */
+#menu li:nth-child(3) li:hover::before {
+    content: "🏴‍☠️";
+    position: absolute;
+    /* top: 10px; */
+    /* right: 10px; */
+    font-size: 1.2rem;
+    transform: rotate(15deg);
+}
+
+/* Reajustando o WANTED no topo */
+#menu li:nth-child(3) a:hover::before {
+    content: "WANTED";
+    position: absolute;
+    top: 8px;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    color: rgba(43, 29, 18, 0.7);
+}
+
+/* --- ESTILO PERSONALIZADO: DUDA ROSA (4º Card) --- */
+
+#menu li:nth-child(4) a:hover {
+    /* Paleta Deep Navy & AliceBlue */
+    --navy-blue: rgb(1, 1, 69);
+    --alice-blue: #f0f8ff;
+    
+    background-color: var(--navy-blue);
+    color: var(--alice-blue) !important;
+    
+    /* Tipografia Profissional */
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+
+    /* Design Minimalista de Alto Nível */
+    border: none;
+    border-radius: 12px;
+    
+    /* Efeito de Elevação Suave */
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(1, 1, 69, 0.3);
+    
+    /* Linha de detalhe (inspirada no hr do projeto dela) */
+    outline: 1px solid rgba(240, 248, 255, 0.3);
+    outline-offset: -8px;
+}
+
+/* Ícone sutil de "Localização/Estrela" para o tema de viagem dela */
+#menu li:nth-child(4) a:hover::before {
+    content: "🌸";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.2rem;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+/* Detalhe da barrinha inferior em branco puro */
+#menu li:nth-child(4) a:hover::after {
+    background: var(--alice-blue);
+    width: 40%; /* Barrinha menor e centralizada para ser mais chic */
+    height: 2px;
+    bottom: 12px;
+    border-radius: 2px;
+}
+
+/* Animação de entrada suave para o card dela */
+#menu li:nth-child(4) a {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- ESTILO PERSONALIZADO: TAINÁ MARTINELLI (5º Card) --- */
+
+#menu li:nth-child(5) a:hover {
+    /* Cores extraídas do HWB do projeto dela */
+    --taina-purple: hwb(271 70% 8%);
+    --taina-blue: hwb(243 30% 10%);
+    --taina-red: hwb(350 65% 4%);
+    --taina-gold: hwb(43 50% 2%);
+
+    background: #fafafa;
+    color: var(--taina-blue) !important;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+
+    /* Design de Bordas Lateral */
+    border-radius: 1rem;
+    border: 1px solid #eee;
+    border-left: 12px solid var(--taina-purple);
+    
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    
+    /* Garantir que o conteúdo não fique escondido pelo after */
+    overflow: hidden; 
+}
+
+/* Linha inferior ocupando 100% da largura */
+#menu li:nth-child(5) a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo o card */
+    height: 8px; /* Um pouco mais grossa para destacar */
+    background: linear-gradient(to right, 
+        var(--taina-purple), 
+        var(--taina-red), 
+        var(--taina-gold)
+    );
+    border-radius: 0; /* Alinhado com as bordas do card */
+    transform: translateX(0); /* Remove o efeito anterior */
+}
+
+#menu li:nth-child(5) a:hover::before {
+    content: "✨";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.2rem;
+    animation: sparkle 2s infinite ease-in-out;
+}
+
+
+#menu li a:hover::after {
+    width: 100%;
+}
+
+#menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: var(--secondary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+/* --- Ajuste no Main para comportar o menu grande --- */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    /* Adicionando um leve padrão de fundo corporativo */
+    background-image: radial-gradient(#6366f1 0.5px, transparent 0.5px);
+    background-size: 30px 30px;
+    opacity: 0.9;
 }
 
 /* --- Main Content --- */

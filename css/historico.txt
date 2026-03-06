@@ -1,0 +1,134 @@
+/* --- ESTILO PORTAL TORII: KOGAKE (1º Card) --- */
+
+#menu li:nth-child(1) a:hover {
+    /* Cores e Texturas */
+    background: 
+        linear-gradient(rgba(230, 0, 35, 0.2), rgba(15, 15, 15, 0.98)), 
+        url('https://www.transparenttextures.com/patterns/black-scales.png'),
+        #0a0a0a;
+    
+    color: var(--gold-accent) !important;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+
+    /* FORMATO DE PORTAL TORII */
+    /* Curvando as pontas superiores para cima e mantendo a base reta */
+    border-radius: 100px 100px 4px 4px / 20px 20px 0px 0px; 
+    
+    /* Bordas que simulam as vigas do portal */
+    border-top: 12px solid var(--japan-red);    /* Viga principal (Kasagi) */
+    border-left: 8px solid var(--japan-red);    /* Pilar esquerdo */
+    border-right: 8px solid var(--japan-red);   /* Pilar direito */
+    border-bottom: 2px solid var(--dark-red);   /* Base sutil */
+
+    /* Efeitos de Iluminação */
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 
+        0 20px 40px rgba(230, 0, 35, 0.4),
+        0 -5px 15px rgba(230, 0, 35, 0.3); /* Brilho no topo do portal */
+    
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Detalhe da viga secundária (Nuki) que atravessa o portal no hover */
+#menu li:nth-child(1) a:hover::after {
+    content: '';
+    position: absolute;
+    top: 35px; /* Posição da viga horizontal interna */
+    left: -10%;
+    width: 120%;
+    height: 4px;
+    background: var(--japan-red);
+    box-shadow: 0 0 10px var(--japan-red);
+    z-index: -1;
+    border-radius: 2px;
+}
+
+/* Brilho de Katana que agora respeita o novo formato */
+#menu li:nth-child(1) a::before {
+    content: '⛩️'; /* Coloquei o emoji como ícone central de fundo */
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0;
+    transition: 0.5s;
+    color: rgba(230, 0, 35, 0.1);
+}
+
+#menu li:nth-child(1) a:hover::before {
+    opacity: 1;
+    transform: scale(1.2);
+    color: rgba(230, 0, 35, 0.15);
+}
+
+
+
+/* --- ESTILO PERSONALIZADO: LUCAS LIMA (3º Card) --- */
+
+#menu li:nth-child(3) a:hover {
+    /* Cores do Tema Pirata */
+    --paper-light: #f6e7c6;
+    --paper-dark: #ecd6a4;
+    --ink-brown: #2b1d12;
+    --gold-treasure: #f59e0b;
+    --pirate-red: #b91c1c;
+
+    /* Fundo estilo Pergaminho */
+    background: linear-gradient(180deg, var(--paper-light), var(--paper-dark));
+    color: var(--ink-brown) !important;
+    
+    /* Tipografia e Borda */
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 2px solid var(--ink-brown);
+    border-radius: 4px; /* Cantos mais retos para parecer papel cortado */
+    
+    /* Efeitos Visuais */
+    transform: scale(1.05) rotate(-2deg); /* Leve inclinação de cartaz colado */
+    box-shadow: 15px 15px 0px rgba(43, 29, 18, 0.2), 
+                0 0 20px rgba(245, 158, 11, 0.3);
+    
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Marca de "WANTED" no topo do card */
+#menu li:nth-child(3) a:hover::before {
+    content: "WANTED";
+    position: absolute;
+    top: 5px;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: rgba(43, 29, 18, 0.6);
+    font-family: sans-serif;
+}
+
+/* Ícone de Tesouro/Pirata no hover */
+#menu li:nth-child(3) a:hover::after {
+    content: "🏴‍☠️";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    background: transparent; /* Remove a barra roxa padrão */
+    height: auto;
+    width: auto;
+    transform: rotate(15deg);
+}
+
+/* Efeito de borda "queimada" interna */
+#menu li:nth-child(3) a:hover {
+    outline: 2px dashed rgba(43, 29, 18, 0.3);
+    outline-offset: -10px;
+}
+
+/* Detalhe de luxo: uma barrinha na base do card */
+#menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: var(--secondary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}

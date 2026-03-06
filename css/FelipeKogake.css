@@ -1,0 +1,237 @@
+/* --- Importando Fontes Estilosas --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+    --japan-red: #e60023; /* Vermelho vibrante */
+    --dark-red: #8a0015;
+    --midnight-black: #0f0f0f;
+    --paper-white: #f0f0f0;
+    --gold-accent: #ffd700;
+}
+
+/* --- Reset e Configurações Básicas --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--paper-white);
+    background-color: var(--midnight-black);
+    line-height: 1.8;
+    overflow-x: hidden;
+    
+    /* Imagem de Fundo Estilosa (Templo Japonês / Paisagem Vermelha) */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                      url('https://images.unsplash.com/photo-1528360983277-13d9b152c6d4?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed; /* Efeito Parallax */
+    background-position: center;
+}
+
+/* --- Animação de Sakuras (Pétalas) Caindo --- */
+/* Usando pseudo-elementos para criar partículas sem mudar o HTML */
+body::before, body::after {
+    content: "🌸 ❀ 🌸";
+    position: fixed;
+    top: -10vh;
+    color: #ffb7c5;
+    font-size: 2rem;
+    text-shadow: 0 0 10px var(--japan-red);
+    z-index: 0;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+body::before {
+    left: 10%;
+    animation: falling 12s infinite;
+}
+
+body::after {
+    right: 20%;
+    animation: falling 18s infinite 2s; /* Delay para não cair junto */
+}
+
+@keyframes falling {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- Header --- */
+header {
+    background: linear-gradient(to bottom, var(--dark-red), transparent);
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+    border-bottom: 3px solid var(--japan-red);
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 3px 3px 0px var(--dark-red);
+    margin-bottom: 10px;
+    color: #fff;
+    
+    /* Animação de entrada */
+    animation: slideInDown 1s ease-out;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: var(--gold-accent);
+    letter-spacing: 2px;
+}
+
+/* --- Container Principal --- */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1; /* Ficar acima das sakuras */
+}
+
+/* --- Seções (Cards) --- */
+section {
+    background: rgba(20, 20, 20, 0.85); /* Fundo vidro escuro */
+    backdrop-filter: blur(10px);
+    margin-bottom: 40px;
+    padding: 35px;
+    border-radius: 2px; /* Cantos mais retos estilo japonês */
+    border-left: 5px solid var(--japan-red);
+    border-right: 1px solid var(--japan-red);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+    
+    /* Imagem de fundo sutil dentro do card */
+    background-image: url('https://www.transparenttextures.com/patterns/black-scales.png');
+}
+
+section:hover {
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 0 0 25px var(--japan-red), inset 0 0 20px rgba(230, 0, 35, 0.2);
+    border-color: var(--gold-accent);
+}
+
+/* Títulos das Seções */
+h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--japan-red);
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+h2::before {
+    content: "🔴"; /* Círculo vermelho representando o sol nascente */
+    font-size: 1.5rem;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 5px var(--japan-red));
+}
+
+/* Texto em Destaque */
+strong {
+    color: var(--gold-accent);
+    font-weight: 600;
+}
+
+/* --- Lista de Curiosidades --- */
+ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 20px;
+    list-style: none;
+}
+
+ul li {
+    background: linear-gradient(45deg, #222, #111);
+    padding: 20px;
+    border: 1px solid #444;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+ul li:hover {
+    background: var(--japan-red);
+    color: white;
+    border-color: var(--japan-red);
+    cursor: pointer;
+    transform: translateX(10px);
+}
+
+ul li:hover strong {
+    color: white;
+}
+
+/* Ícone na lista */
+ul li::before {
+    content: "⛩️";
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--japan-red);
+    transition: color 0.3s;
+}
+
+ul li:hover::before {
+    color: white;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: #000;
+    border-top: 4px solid var(--japan-red);
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 1rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- Scrollbar Customizada (Estilo Webkit) --- */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--japan-red);
+    border-radius: 6px;
+    border: 2px solid #111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-red);
+}
+
+/* --- Animações Extras --- */
+@keyframes slideInDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.2rem; }
+    ul { grid-template-columns: 1fr; } /* Uma coluna no celular */
+    body::before, body::after { font-size: 1.5rem; }
+}

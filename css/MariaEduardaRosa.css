@@ -47,3 +47,58 @@ img {
     display: flex;
     gap: 30px;
 }
+
+/* --- BOTÃO VOLTAR: ESTILO CORPORATIVO (DUDA ROSA) --- */
+.btn-back-duda {
+    display: inline-flex;
+    align-items: center;
+    position: absolute; /* Fixado no canto da tela */
+    top: 25px;
+    left: 25px;
+    padding: 10px 25px;
+    z-index: 9999;
+    
+    /* Cores e Tipografia */
+    background-color: aliceblue;
+    color: rgb(1, 1, 69) !important;
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    
+    /* Formato Moderno */
+    border: 2px solid rgb(1, 1, 69);
+    border-radius: 50px; /* Formato de pílula */
+    
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícone de seta minimalista */
+.btn-back-duda::before {
+    content: "←";
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* Hover: Inversão de Cores Sofisticada */
+.btn-back-duda:hover {
+    background-color: rgb(1, 1, 69);
+    color: white !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(1, 1, 69, 0.3);
+}
+
+/* Ajuste para telas pequenas (Responsividade) */
+@media (max-width: 768px) {
+    .btn-back-duda {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 10px auto 20px auto;
+        display: flex;
+        width: fit-content;
+    }
+}

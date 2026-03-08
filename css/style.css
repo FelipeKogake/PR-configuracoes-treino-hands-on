@@ -50,6 +50,53 @@ header h1 {
     letter-spacing: -1px;
 }
 
+/* --- ESTILIZAÇÃO DO H1 DENTRO DA MAIN --- */
+main h1 {
+    font-family: 'Inter', sans-serif; /* Ou 'Cinzel' se quiser manter o clima épico */
+    font-size: clamp(1.5rem, 4vw, 3rem); /* Responsivo: aumenta e diminui conforme a tela */
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* Efeito de Texto Gradiente */
+    background: linear-gradient(
+        to right, 
+        #6366f1, 
+        #a855f7, 
+        #ec4899, 
+        #6366f1
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Animações */
+    animation: 
+        shine 4s linear infinite,
+        float 3s ease-in-out infinite;
+    
+    /* Sombra sutil para dar profundidade */
+    filter: drop-shadow(0px 10px 15px rgba(168, 85, 247, 0.2));
+}
+
+/* Animação do brilho passando pelo gradiente */
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+/* Animação de flutuação (sobe e desce) */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Ajuste sutil para o Main comportar o H1 */
+main {
+    flex-direction: column; /* Garante que o H1 fique acima do NAV */
+}
+
 /* --- Estilização do Menu Principal --- */
 #menu {
     list-style: none;
@@ -161,67 +208,81 @@ header h1 {
     opacity: 1;
 }
 
-/* --- ESTILO UPGRADE: JONNES PRADO (2º Card) --- */
+/* --- ESTILO CHALET SUÍÇO: JONNES PRADO (VERSÃO RED & WOOD) --- */
 
 #menu li:nth-child(2) a:hover {
-    --swiss-red: #D52B1E;
-    --swiss-white: #FFFFFF;
+    /* Paleta de Cores: Madeira e Vermelho Intenso */
+    --wood-dark: #3e2723;   /* Madeira mais escura para contraste */
+    --wood-vibe: #5d4037; 
+    --swiss-red: #d52b1e;   /* O vermelho forte da bandeira */
+    --snow-white: #ffffff;
+
+    /* Fundo com ripas de madeira e um toque avermelhado */
+    background: linear-gradient(
+        to bottom,
+        rgba(93, 64, 55, 0.9) 0%,
+        rgba(93, 64, 55, 0.9) 48%,
+        var(--wood-dark) 50%,
+        rgba(93, 64, 55, 0.9) 52%
+    );
+    background-size: 100% 25px;
     
-    background-color: var(--swiss-white);
-    color: var(--swiss-red) !important;
+    /* Configuração do Nome */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Empurra o nome para a base */
+    align-items: center;
+    padding-bottom: 15px;      /* Espaço do nome para a borda inferior */
+    
+    color: var(--snow-white) !important;
     font-family: 'Playpen', cursive;
+    text-shadow: 2px 2px 0px var(--swiss-red); /* Sombra de texto vermelha */
+    font-size: 1.1rem;
+    white-space: nowrap;
+
+    /* Estrutura da Casa com Traços Vermelhos */
+    border: 4px solid var(--wood-dark);
+    border-top: 15px solid var(--swiss-red);  /* Telhado agora é Vermelho Suíça */
+    border-bottom: 8px solid var(--swiss-red); /* Base reforçada em vermelho */
+    border-radius: 2px;
     
-    /* Geometria Suíça: Bordas precisas e simétricas */
-    border: 2px solid var(--swiss-red);
-    border-radius: 0px; /* Design suíço clássico prefere ângulos retos */
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 
+        0 15px 30px rgba(213, 43, 30, 0.3), /* Glow vermelho na sombra */
+        0 20px 0px -5px var(--wood-dark);
     
-    /* Transformação sutil e imponente */
-    transform: scale(1.05);
-    box-shadow: 15px 15px 0px var(--swiss-red); /* Sombra sólida (Pop Art/Swiss Style) */
-    
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
 }
 
-/* Marca d'água da Cruz Suíça no fundo do card */
+/* Marca da Cruz Suíça Vermelha no fundo */
 #menu li:nth-child(2) a:hover::before {
     content: "✚";
     position: absolute;
-    font-size: 5rem;
-    color: rgba(213, 43, 30, 0.05); /* Bem sutil no fundo */
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: rgba(213, 43, 30, 0.2); /* Cruz vermelha translúcida no centro */
     z-index: 0;
 }
 
-/* Detalhe da Cruz que "sai" do canto */
+/* Detalhe de "Viga" lateral vermelha */
 #menu li:nth-child(2) a:hover::after {
-    content: "✚";
+    content: '';
     position: absolute;
+    left: 0;
     top: 0;
-    right: 0;
+    width: 6px;
+    height: 100%;
     background: var(--swiss-red);
-    color: white;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    font-family: sans-serif; /* Cruz clássica */
-    border-radius: 0 0 0 8px;
-    width: auto;
-    height: auto;
-    transform: none;
-    left: auto; /* Reset do estilo global */
+    box-shadow: 2px 0 10px rgba(213, 43, 30, 0.5);
 }
 
-/* Pequena linha de "Precisão Suíça" na base */
-#menu li:nth-child(2) a:hover::after {
-    /* (Reaproveitando o elemento para criar o selo no canto) */
-}
-
-/* Adicionando uma borda interna de precisão */
-#menu li:nth-child(2) a:hover {
-    outline: 1px solid var(--swiss-red);
-    outline-offset: -10px;
+/* Removendo decorações antigas e garantindo o layout limpo */
+#menu li:nth-child(2) a::after, 
+#menu li:nth-child(2) a::before {
+    transition: 0.3s;
 }
 
 /* --- ESTILO PERSONALIZADO: LUCAS LIMA (3º Card) --- */

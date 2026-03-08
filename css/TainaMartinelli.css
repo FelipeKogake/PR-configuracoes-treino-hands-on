@@ -111,3 +111,61 @@ footer{
     }
 
 }
+
+/* --- BOTÃO VOLTAR: ESTILO SOFT MINIMALIST (TAINÁ MARTINELLI) --- */
+.btn-back-taina {
+    display: inline-flex;
+    align-items: center;
+    position: absolute; /* Fixado no canto da tela */
+    top: 20px;
+    left: 20px;
+    padding: 8px 22px;
+    z-index: 9999;
+    
+    /* Cores e Tipografia */
+    background: #ffffff;
+    color: hwb(243 30% 10%) !important; /* Azul do Header dela */
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    
+    /* Design Arredondado e Bordas Coloridas */
+    border: 1px solid #eee;
+    border-left: 5px solid hwb(271 70% 8%); /* Lavanda suave */
+    border-radius: 30px;
+    
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Ícone de Estrela/Brilho sutil */
+.btn-back-taina::before {
+    content: "✨";
+    margin-right: 8px;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Hover: Efeito de Preenchimento Suave */
+.btn-back-taina:hover {
+    background: #fafafa;
+    transform: translateX(5px); /* Move levemente para indicar a direção */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    border-left-color: hwb(350 65% 4%); /* Muda para o rosa pastel no hover */
+}
+
+.btn-back-taina:hover::before {
+    transform: rotate(20deg) scale(1.2);
+}
+
+/* Ajuste de responsividade */
+@media (max-width: 768px) {
+    .btn-back-taina {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 20px;
+        display: inline-flex;
+    }
+}

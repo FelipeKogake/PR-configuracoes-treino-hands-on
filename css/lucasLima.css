@@ -258,3 +258,60 @@ body{ padding: 14px; }
 header h1{ font-size: 1.35rem; }
 section{ padding: 14px; }
 }
+
+/* --- BOTÃO VOLTAR: ESTILO PIRATA (LUCAS LIMA) --- */
+.btn-back-pirate {
+    display: inline-block;
+    position: fixed; /* Mudado para fixed para garantir que fique no canto da tela */
+    top: 20px;
+    left: 20px; /* Alinhado à esquerda com margem de 20px */
+    padding: 8px 20px;
+    z-index: 9999; /* Garante que fique acima de todos os elementos */
+    
+    /* Cores de Pergaminho */
+    background: #f6e7c6;
+    color: #2b1d12 !important;
+    
+    /* Tipografia */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    
+    /* Estética de Papel Rasgado */
+    border: 2px solid #2b1d12;
+    border-radius: 2px;
+    box-shadow: 5px 5px 0px rgba(43, 29, 18, 0.2);
+    
+    /* Efeito de borda "queimada" interna */
+    outline: 2px dashed rgba(43, 29, 18, 0.3);
+    outline-offset: -6px;
+    
+    transform: rotate(-3deg);
+    transition: all 0.3s ease;
+}
+
+.btn-back-pirate:hover {
+    transform: rotate(0deg) scale(1.1);
+    background: #ecd6a4;
+    box-shadow: 8px 8px 0px #b91c1c; 
+    color: #b91c1c !important;
+}
+
+/* Símbolo de bússola/âncora antes do texto */
+.btn-back-pirate::before {
+    content: "⚓ ";
+}
+
+/* Ajuste de responsividade para o botão não sumir em telas pequenas */
+@media (max-width: 600px) {
+    .btn-back-pirate {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0 0 15px 0;
+        display: inline-block;
+        width: fit-content;
+    }
+}
